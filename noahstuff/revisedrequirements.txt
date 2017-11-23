@@ -1,0 +1,10 @@
+1. A problem to solve
+2. High quality of coding or graphical representation
+3. 2 Page document that explains previous work in this area and demonstrates how your approach is a new one.
+4. Project that correctly starts and ends – Your project must always run.  If there is a stopping point, it should bring the user back to a menu or restart.  It should never “go black”
+5. Video of project
+6. This project will be able to run on a portable system.
+7. The device will send Data from the itself to a Server. 
+8. We will have a companion Android Application that the user can view their conversations.
+9. A Server that directs the the information passed from the device to the Android Application.
+10. The device would not respond to the user unless prompted with its “Wake Word”
