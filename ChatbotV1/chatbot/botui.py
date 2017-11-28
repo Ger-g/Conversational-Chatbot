@@ -102,26 +102,30 @@ class MicrophoneStream(object):
         return None, pyaudio.paContinue
 
     def generator(self):
-        while not self.closed:
-            # Use a blocking get() to ensure there's at least one chunk of
-            # data, and stop iteration if the chunk is None, indicating the
-            # end of the audio stream.
-            chunk = self._buff.get()
-            # if chunk is None:
-            #     return
-            data = [chunk]
+        try:
+            while not self.closed:
+                # Use a blocking get() to ensure there's at least one chunk of
+                # data, and stop iteration if the chunk is None, indicating the
+                # end of the audio stream.
+                chunk = self._buff.get()
+                # if chunk is None:
+                #     return
+                data = [chunk]
 
-            # Now consume whatever other data's still buffered.
-            while True:
-                try:
-                    chunk = self._buff.get(block=False)
-                    if chunk is None:
-                        return
-                    data.append(chunk)
-                except queue.Empty:
-                    break
+                # Now consume whatever other data's still buffered.
+                while True:
+                    try:
+                        chunk = self._buff.get(block=False)
+                        if chunk is None:
+                            return
+                        data.append(chunk)
+                    except queue.Empty:
+                        break
 
-            yield b''.join(data)
+                yield b''.join(data)
+        except TypeError:
+            print('\n Closing microphone')
+            os._exit(0)
 
 
 class ResumableMicrophoneStream(MicrophoneStream):
@@ -271,7 +275,7 @@ def listen_audio_loop(responses):
             # one of our keywords.
             if re.search(r'\b(goodbye|quit)\b', transcript, re.I):
                 print('Exiting..')
-                break
+                os._exit(0)
 
             mic_rec = True
             sys.stdout.write("> Say something!")
@@ -323,7 +327,8 @@ def respond(Hsent):
         if Hsent.strip() == 'quit' or Hsent.strip() == 'goodbye':
             engine.say('It\'s been a pleasure chatting with you, goodbye!')
             engine.runAndWait()
-            break
+            os._exit(0)
+
 
         # get the response from our NMT model
         ans = predictor.predict(Hsent)
@@ -333,6 +338,7 @@ def respond(Hsent):
         sys.stdout.flush()
 
         return ans
+
 
 def miniMain():
 
@@ -353,7 +359,6 @@ def miniMain():
     sys.stdout.flush()
 
     with mic_manager as stream:
-        resume = False
         while True:
             audio_generator = stream.generator()
             requests = (types.StreamingRecognizeRequest(audio_content=content) for content in audio_generator)
@@ -378,11 +383,7 @@ def miniMain():
                 print('\n               Swapping streams..')
                 resume = True
 
-def main(sample_rate, audio_src):
-    # See http://g.co/cloud/speech/docs/languages
-    # for a list of supported languages.
-    language_code = 'en-US'  # a BCP-47 language tag
-
+def main():
     while True:
         miniMain()
 
@@ -401,7 +402,7 @@ if __name__ == "__main__":
     engine.runAndWait()
 
     # init TF session
-    with tf.Session() as sess:
+    with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
         predictor = BotPredictor(sess, corpus_dir=corp_dir, knbase_dir=knbs_dir, result_dir=res_dir, result_file='basic')
 
         parser = argparse.ArgumentParser(
@@ -411,7 +412,7 @@ if __name__ == "__main__":
         parser.add_argument('--audio_src', help='File to simulate streaming of.')
 
         args = parser.parse_args()
-        main(args.rate, args.audio_src)
+        main()
 
     # old
     #     print("You can now chat with Chatbot!")

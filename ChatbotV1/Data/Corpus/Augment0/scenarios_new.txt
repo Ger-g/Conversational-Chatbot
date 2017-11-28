@@ -208,7 +208,7 @@ Q: I tend to get bored easily and so love to keep myself challenged .
 A: We have a position where that could work out well .
 ===
 Q: Thank you for taking the time to interview me .
-A: Hi there , I 'm Papaya , the owner of this company . Did you find your way here OK ?
+A: Hi there , I 'm Hugo , the owner of this company . Did you find your way here OK ?
 Q: Your assistant gave wonderful directions .
 A: Why are you switching jobs at this point in your career ?
 Q: Our company is moving overseas and I wish to stay in the United States .
@@ -471,9 +471,9 @@ A: By going to the providers on the HMO list , you save money in out-of-pocket e
 Q: Can you give me a comparison between a PPO and an HMO ?
 A: We can mail you a questionnaire and when we have all of your information , we will mail you a quote .
 ===
-Q: Good morning , is this Papaya ?
-A: You are speaking with Papaya . How can I help you ?
-Q: Papaya , this is Malia , and I need to call in sick today .
+Q: Good morning , is this Hugo ?
+A: You are speaking with Hugo . How can I help you ?
+Q: Hugo , this is Malia , and I need to call in sick today .
 A: What seems to be the problem ?
 Q: I went hiking and have terrible poison oak .
 A: When did you get that ?
@@ -482,9 +482,9 @@ A: What are you doing for it ?
 Q: The doctor prescribed an ointment and gave me a shot .
 A: Good . You probably should be much better by tomorrow .
 ===
-Q: May I speak to Papaya , please ?
-A: This is Papaya you are speaking with . What can I do for you ?
-Q: Hi , Papaya , this is Malia , and I will not be coming to work today .
+Q: May I speak to Hugo , please ?
+A: This is Hugo you are speaking with . What can I do for you ?
+Q: Hi , Hugo , this is Malia , and I will not be coming to work today .
 A: What is wrong with you ?
 Q: I have really bad poison oak and ca n't stop itching .
 A: How long have you had it ?
@@ -493,9 +493,9 @@ A: How have you been treating it ?
 Q: I have some lotion that the doctor gave me , as well as an antihistamine .
 A: That should work . I 'll see you tomorrow when you return to work .
 ===
-Q: I would like to speak with Papaya .
-A: This is Papaya . How may I help you ?
-Q: Papaya , this is Malia , and I am afraid that I am feeling a bit under the weather .
+Q: I would like to speak with Hugo .
+A: This is Hugo . How may I help you ?
+Q: Hugo , this is Malia , and I am afraid that I am feeling a bit under the weather .
 A: Do you know what the problem is ?
 Q: I have a horrible rash from poison oak .
 A: Have you had it a long time ?
@@ -1038,7 +1038,7 @@ A: Thank you for all of the information . I will help you find the perfect house
 Q: I 'd like to reserve a hotel room .
 A: That should be no problem . May I have your full name , please ?
 Q: My name is John Sandals .
-A: Hello , Mr. Sandals . My name is Papaya . What days do you need that reservation , sir ?
+A: Hello , Mr. Sandals . My name is Hugo . What days do you need that reservation , sir ?
 Q: I 'm planning to visit New York from Friday , April 14 until Monday , April 17 .
 A: Our room rates recently went up . Is that okay with you , sir ?
 Q: How much per night are we talking about ?
@@ -1055,7 +1055,7 @@ A: Thank you , sir . We look forward to seeing you here !
 Q: Hi there , I want to reserve a hotel room .
 A: No problem at all . Could I have your full name , please ?
 Q: Sure , My name is John Sandals .
-A: Hi , Mr. Sandals . I 'm Papaya , at your service . When do you need the room ?
+A: Hi , Mr. Sandals . I 'm Hugo , at your service . When do you need the room ?
 Q: My plans are to be there April 14th to the 17th .
 A: We have new room rates , sir . Will that be acceptable to you ?
 Q: It depends on the price , of course . What is it ?
@@ -1072,7 +1072,7 @@ A: Thank you so much , sir . We look forward to seeing you !
 Q: I need to reserve a room .
 A: Not a problem . May I have your name , please ?
 Q: Of course . I 'm John Sandals .
-A: Hi , sir . My name is Papaya . Could you tell me when you need the room ?
+A: Hi , sir . My name is Hugo . Could you tell me when you need the room ?
 Q: Right now . I plan to be there in April from the 14th to the 17th .
 A: Perhaps you did n't know that we have new room rates . Do you find that acceptable , sir ?
 Q: Maybe . How much is a room ?
@@ -1089,7 +1089,7 @@ A: Thank you for doing business with us , and we look forward to seeing you !
 Q: I need a hotel room .
 A: That 's no problem at all . May I have your name , please ?
 Q: Certainly . My name is John Sandals .
-A: It 's a pleasure , Mr. Sandals . My name is Papaya . What days will you need a room ?
+A: It 's a pleasure , Mr. Sandals . My name is Hugo . What days will you need a room ?
 Q: Friday afternoon , April 14 through Monday morning , April 17 .
 A: One minor problem , sir . Our prices are now slightly higher . Is that acceptable , sir ?
 Q: Please tell me the price , so I can make a decision .
@@ -1106,7 +1106,7 @@ A: Ok , I got it . Thank you so much for choosing our hotel , sir !
 Q: I need a room for a few days .
 A: That wo n't be a problem . Could you please tell me your name ?
 Q: My name is John Sandals .
-A: Sir , I 'm Papaya , and I run the front desk . Please tell me the days you 'll be here .
+A: Sir , I 'm Hugo , and I run the front desk . Please tell me the days you 'll be here .
 Q: I 'll be there in April : Friday through Monday , the 14th through the 17th .
 A: We recently changed many things here , sir , including our prices . Do you mind , sir ?
 Q: Possibly . What 's the actual price ?
@@ -1438,7 +1438,7 @@ A: I need the furniture moved to my new house .
 Q: All I need is a little more information , and we 'll take care of the rest .
 A: Sounds great . I 'm glad you could help me .
 ===
-Q: How are you doing , Papaya ?
+Q: How are you doing , Hugo ?
 A: I 'm fine , thank you .
 Q: Did you need our help with a move ?
 A: Yes , I do need your help with a move .

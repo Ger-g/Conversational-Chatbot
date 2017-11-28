@@ -10,5 +10,14 @@ engine.say("Hello, nice day")
 engine.runAndWait()
 
 time.sleep(2.5)
+engine.say("I love cats")
+engine.runAndWait()
+
+time.sleep(2.5)
+engine.say("")
+engine.runAndWait()
+
+
+time.sleep(2.5)
 engine.say("tell me a story")
 engine.runAndWait()
