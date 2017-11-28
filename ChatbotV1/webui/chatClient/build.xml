@@ -64,10 +64,10 @@
             <manifest>
                 <attribute name="Specification-Title" value="ChatClient"/>
                 <attribute name="Specification-Version" value="1.0"/>
-                <attribute name="Specification-Vendor" value="papayachat.net"/>
-                <attribute name="Implementation-Title" value="net.papayachat.client"/>
+                <attribute name="Specification-Vendor" value="Hugochat.net"/>
+                <attribute name="Implementation-Title" value="net.Hugochat.client"/>
                 <attribute name="Implementation-Version" value="${revision}"/>
-                <attribute name="Implementation-Vendor" value="papayachat.net"/>
+                <attribute name="Implementation-Vendor" value="Hugochat.net"/>
                 <attribute name="Built-By" value="Bo Shao"/>
                 <attribute name="Built-Date" value="${current.time}"/>
             </manifest>
@@ -80,10 +80,10 @@
             <manifest>
                 <attribute name="Specification-Title" value="ChatClient"/>
                 <attribute name="Specification-Version" value="1.0"/>
-                <attribute name="Specification-Vendor" value="papayachat.net"/>
-                <attribute name="Implementation-Title" value="net.papayachat.client"/>
+                <attribute name="Specification-Vendor" value="Hugochat.net"/>
+                <attribute name="Implementation-Title" value="net.Hugochat.client"/>
                 <attribute name="Implementation-Version" value="${revision}"/>
-                <attribute name="Implementation-Vendor" value="papayachat.net"/>
+                <attribute name="Implementation-Vendor" value="Hugochat.net"/>
                 <attribute name="Built-By" value="Bo Shao"/>
                 <attribute name="Built-Date" value="${current.time}"/>
             </manifest>

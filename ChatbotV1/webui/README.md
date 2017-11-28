@@ -2,9 +2,9 @@
 
 Python is the number one programming language used for machine learning, while Java is still the most popular language for web development. The purpose of this web UI is to demonstrate how to deploy a neural network model created and trained in Python and TensorFlow into a Java environment. A SOAP-based web service is generated to meet this need. The steps to create the running environment in a Windows system are described below. Similar procedures can be followed in Linux, but have not been tried.
 
-The description below assumes that you are configuring DNS entry papayachat.net to point to your machine, and running the web service server and client on the same one. In order to make the DNS entry papayachat.net work, edit the hosts file (located at C:\Windows\System32\drivers\etc in a normal installation) and add the following line:
+The description below assumes that you are configuring DNS entry Hugochat.net to point to your machine, and running the web service server and client on the same one. In order to make the DNS entry Hugochat.net work, edit the hosts file (located at C:\Windows\System32\drivers\etc in a normal installation) and add the following line:
     
-    127.0.0.1  		papayachat.net
+    127.0.0.1  		Hugochat.net
 
 ## Python Server
 
@@ -22,7 +22,7 @@ cd server
 python chatservice.py
 ```
 
-Now, you should be able to see the WDSL file here: http://papayachat.net:8080/ChatService?wsdl (or http://localhost:8080/ChatService?wsdl).
+Now, you should be able to see the WDSL file here: http://Hugochat.net:8080/ChatService?wsdl (or http://localhost:8080/ChatService?wsdl).
 
 ## Java Client
 
@@ -35,4 +35,4 @@ The Java client is tested with Java 1.7 and Tomcat 7.0. You can try later versio
 6. Change the service address in C:\chatClient\ROOT\ajax\getChatReply.jsp in case you are using a different domain.
 7. Restart Tomcat.
 
-And now you are ready to try it: http://papayachat.net, if you are using this domain.
+And now you are ready to try it: http://Hugochat.net, if you are using this domain.

@@ -171,57 +171,6 @@ class ResumableMicrophoneStream(MicrophoneStream):
     #         yield byte_data
 
 
-class SimulatedMicrophoneStream(ResumableMicrophoneStream):
-    def __init__(self, audio_src, *args, **kwargs):
-        super(SimulatedMicrophoneStream, self).__init__(*args, **kwargs)
-        self._audio_src = audio_src
-
-    def _delayed(self, get_data):
-        total_bytes_read = 0
-        start_time = time.time()
-
-        chunk = get_data(self._bytes_per_chunk)
-
-        while chunk and not self.closed:
-            total_bytes_read += len(chunk)
-            expected_yield_time = start_time + (
-                    total_bytes_read / self._bytes_per_second)
-            now = time.time()
-            if expected_yield_time > now:
-                time.sleep(expected_yield_time - now)
-
-            yield chunk
-
-            chunk = get_data(self._bytes_per_chunk)
-
-    def _stream_from_file(self, audio_src):
-        with open(audio_src, 'rb') as f:
-            for chunk in self._delayed(
-                    lambda b_per_chunk: f.read(b_per_chunk)):
-                yield chunk
-
-        # Continue sending silence - 10s worth
-        trailing_silence = six.StringIO(
-                b'\0' * self._bytes_per_second * 10)
-        for chunk in self._delayed(trailing_silence.read):
-            yield chunk
-
-    def _thread(self):
-        for chunk in self._stream_from_file(self._audio_src):
-            self._fill_buffer(chunk)
-        self._fill_buffer(None)
-
-    def __enter__(self):
-        self.closed = False
-
-        threading.Thread(target=self._thread).start()
-
-        return self
-
-    def __exit__(self, type, value, traceback):
-        self.closed = True
-
-
 def listen_audio_loop(responses):
     """Iterates through server responses and prints them.
     The responses passed is a generator that will block until a response
@@ -263,12 +212,15 @@ def listen_audio_loop(responses):
 
             num_chars_printed = len(transcript)
 
-        else:
+        elif re.search(r'\b(Hugo)\b', transcript, re.I):
+            temp = transcript[1:5]
+            if temp is 'Hugo':
+                transcript = transcript[6:]
+
             global mic_rec
             mic_rec = False
             print('You:  ', transcript)
             res = respond(transcript)
-
 
 
             # Exit recognition if any of the transcribed phrases could be
@@ -276,6 +228,12 @@ def listen_audio_loop(responses):
             if re.search(r'\b(goodbye|quit)\b', transcript, re.I):
                 print('Exiting..')
                 os._exit(0)
+
+
+            # firebase
+            post = transcript + "\n" + res
+            f = firebase.FirebaseApplication('https://testing-27640.firebaseio.com/', authentication=None)
+            f.post('/messages', {'message': post})
 
             mic_rec = True
             sys.stdout.write("> Say something!")
@@ -405,86 +363,4 @@ if __name__ == "__main__":
     with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
         predictor = BotPredictor(sess, corpus_dir=corp_dir, knbase_dir=knbs_dir, result_dir=res_dir, result_file='basic')
 
-        parser = argparse.ArgumentParser(
-            description=__doc__,
-            formatter_class=argparse.RawDescriptionHelpFormatter)
-        parser.add_argument('--rate', default=16000, help='Sample rate.', type=int)
-        parser.add_argument('--audio_src', help='File to simulate streaming of.')
-
-        args = parser.parse_args()
         main()
-
-    # old
-    #     print("You can now chat with Chatbot!")
-    #     # Waiting from standard input.
-    #     sys.stdout.write("> Say something!")
-    #     sys.stdout.flush()
-
-        # begin streaming from the microphone
-        # with MicrophoneStream(RATE, CHUNK) as stream:
-        #     audio_generator = stream.generator()
-        #     requests = (types.StreamingRecognizeRequest(audio_content=content) for content in audio_generator)
-        #     # input stream of Google speech API response objects
-        #     responses = client.streaming_recognize(streaming_config, requests)
-        #
-        #     # Now, put the transcription responses to use.
-        #     conv_loop(responses)
-#
-#
-# def conv_loop(resp):
-#     # Take the response objeccts and parse them until a full sentence is retrieved
-#     num_chars_printed = 0
-#     for response in resp:
-#         if not response.results:
-#             continue
-#
-#         # The `results` list is a consecutive list of transcribed input. For streaming, we only care about
-#         # the first result being considered, since once it's `is_final`, it
-#         # moves on to considering the next utterance.
-#         result = response.results[0]
-#
-#         if not result.alternatives:
-#             continue
-#
-#         # Display the transcription of the top alternative.
-#         transcript = result.alternatives[0].transcript
-#
-#         # Display interim results, but with a carriage return at the end of the
-#         # line, so subsequent lines will overwrite them.
-#         # If the previous result was longer than this one, we need to print
-#         # some extra spaces to overwrite the previous result
-#         overwrite_chars = ' ' * (num_chars_printed - len(transcript))
-#
-#         if not result.is_final:
-#             # if the result is still being parsed for input
-#             sys.stdout.write(transcript + overwrite_chars + '\r')
-#             sys.stdout.flush()
-#
-#             num_chars_printed = len(transcript)
-#
-#         else:
-#             # once a result is final, output the transcription, cut mic input, and call the response method
-#             Human_sent = (transcript + overwrite_chars)
-#             global mic_rec
-#             mic_rec = False
-#
-#             print('You:  ', Human_sent)
-#             Bot_response = respond(Human_sent)
-#
-#             # Exit recognition if any of the transcribed phrases could be
-#             # one of our keywords.
-#             if re.search(r'\b(goodbye|quit)\b', transcript, re.I):
-#                 print('Exiting..')
-#                 break
-#
-#             else:
-#                 # send chat info to firebase
-#                 post = Human_sent + "\n" + Bot_response
-#                 f = firebase.FirebaseApplication('https://testing-27640.firebaseio.com/', authentication=None)
-#                 f.post('/messages', {'message': post})
-#
-#
-#             mic_rec = True
-#             sys.stdout.write("> Say something!")
-#             sys.stdout.flush()
-#             num_chars_printed = 0

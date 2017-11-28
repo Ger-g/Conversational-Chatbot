@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ==============================================================================*/
-package net.papayachat.chatservice;
+package net.Hugochat.chatservice;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "ChatServicePortType", targetNamespace = "http://papayachat.net/ChatService")
+@WebService(name = "ChatServicePortType", targetNamespace = "http://Hugochat.net/ChatService")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
     ObjectFactory.class
@@ -38,15 +38,15 @@ public interface ChatServicePortType {
      * 
      * @param parameters
      * @return
-     *     returns net.papayachat.chatservice.SessionSentence
+     *     returns net.Hugochat.chatservice.SessionSentence
      */
-    @WebMethod(action = "http://papayachat.net/ChatService/reply")
+    @WebMethod(action = "http://Hugochat.net/ChatService/reply")
     @WebResult(name = "SessionSentence", 
-			   targetNamespace = "http://papayachat.net/ChatService", 
+			   targetNamespace = "http://Hugochat.net/ChatService",
 			   partName = "returns")
     public SessionSentence reply(
         @WebParam(name = "params", 
-				  targetNamespace = "http://papayachat.net/ChatService", 
+				  targetNamespace = "http://Hugochat.net/ChatService",
 				  partName = "parameters")
         ParamsTypes parameters);
 }

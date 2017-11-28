@@ -24,7 +24,7 @@ _func_val_get_weekday_para1_d0
 the
 year
 ,
-papaya
+Hugo
 can
 you
 tell

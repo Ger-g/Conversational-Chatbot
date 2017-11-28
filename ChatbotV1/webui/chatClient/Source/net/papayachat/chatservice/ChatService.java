@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ==============================================================================*/
-package net.papayachat.chatservice;
+package net.Hugochat.chatservice;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,13 +31,13 @@ import javax.xml.ws.WebServiceFeature;
  * 
  */
 @WebServiceClient(name = "ChatService", 
-				  targetNamespace = "http://papayachat.net/ChatService", 
+				  targetNamespace = "http://Hugochat.net/ChatService",
 				  wsdlLocation = "http://localhost/wsdl/ChatService.xml")
 public class ChatService extends Service {
     private final static URL CHATSERVICE_WSDL_LOCATION;
     private final static WebServiceException CHATSERVICE_EXCEPTION;
     private final static QName CHATSERVICE_QNAME = 
-			new QName("http://papayachat.net/ChatService", "ChatService");
+			new QName("http://Hugochat.net/ChatService", "ChatService");
 
     static {
         URL url = null;
@@ -82,7 +82,7 @@ public class ChatService extends Service {
      */
     @WebEndpoint(name = "ChatServicePort")
     public ChatServicePortType getChatServicePort() {
-        return super.getPort(new QName("http://papayachat.net/ChatService", "ChatServicePort"), 
+        return super.getPort(new QName("http://Hugochat.net/ChatService", "ChatServicePort"),
 				ChatServicePortType.class);
     }
 
@@ -96,7 +96,7 @@ public class ChatService extends Service {
      */
     @WebEndpoint(name = "ChatServicePort")
     public ChatServicePortType getChatServicePort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://papayachat.net/ChatService", "ChatServicePort"), 
+        return super.getPort(new QName("http://Hugochat.net/ChatService", "ChatServicePort"),
 				ChatServicePortType.class, features);
     }
 

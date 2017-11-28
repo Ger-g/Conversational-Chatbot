@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ==============================================================================*/
-package net.papayachat.chatservice;
+package net.Hugochat.chatservice;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;

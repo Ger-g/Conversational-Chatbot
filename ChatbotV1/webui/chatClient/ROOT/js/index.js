@@ -49,7 +49,7 @@ function submitQuestion() {
 		success:function(data){
 			if (findNoError(data, 1)) {
 				var reply=getTagContent(data, "reply");
-				bc.append("<div class='answer'><div class='user'><figure class='avatar'><img src='/images/papaya.jpg'/></figure></div><div class='content'>"+reply+"</div></div>");
+				bc.append("<div class='answer'><div class='user'><figure class='avatar'><img src='/images/Hugo.jpg'/></figure></div><div class='content'>"+reply+"</div></div>");
 				bc.scrollTop(bc[0].scrollHeight);
 			}
 		}

@@ -15,28 +15,28 @@ A: It is _func_val_get_weekday_para1_d0 .
 Q: What year is it today ?
 A: It is _func_val_get_weekday_para1_d0 .
 ===
-Q: What time is it , Papaya ?
+Q: What time is it , Hugo ?
 A: It is _func_val_get_time .
-Q: What time is it now , Papaya ?
+Q: What time is it now , Hugo ?
 A: It is _func_val_get_time .
-Q: What day is it today , Papaya ?
+Q: What day is it today , Hugo ?
 A: Today is _func_val_get_today .
-Q: What date is today , Papaya ?
+Q: What date is today , Hugo ?
 A: Today is _func_val_get_today .
-Q: What 's today 's date , Papaya ?
+Q: What 's today 's date , Hugo ?
 A: Today is _func_val_get_weekday_para1_d0 .
-Q: What is the date today , Papaya ?
+Q: What is the date today , Hugo ?
 A: Today is _func_val_get_weekday_para1_d0 .
-Q: What year is it , Papaya ?
+Q: What year is it , Hugo ?
 A: It is _func_val_get_weekday_para1_d0 .
-Q: What year is it today , Papaya ?
+Q: What year is it today , Hugo ?
 A: It is _func_val_get_weekday_para1_d0 .
 ===
-Q: Can you tell me what time it is now , Papaya ?
+Q: Can you tell me what time it is now , Hugo ?
 A: It is _func_val_get_time .
 Q: Tell me what time it is please !
 A: It is _func_val_get_time .
-Q: Can you tell me what 's today 's date , Papaya ?
+Q: Can you tell me what 's today 's date , Hugo ?
 A: Today is _func_val_get_weekday_para1_d0 .
 Q: Tell me today 's date please !
 A: Today is _func_val_get_weekday_para1_d0 .
@@ -54,7 +54,7 @@ A: It was _func_val_get_weekday_para1_d_1 .
 Q: What date it was yesterday ?
 A: It was _func_val_get_weekday_para1_d_1 .
 ===
-Q: Can you tell me what 's yesterday 's date , Papaya ?
+Q: Can you tell me what 's yesterday 's date , Hugo ?
 A: It was _func_val_get_weekday_para1_d_1 .
 Q: Tell me yesterday 's date please !
 A: It was _func_val_get_weekday_para1_d_1 .
@@ -79,7 +79,7 @@ A: It is _func_val_get_weekday_para1_d1 .
 Q: What date it will be tomorrow ?
 A: It will be _func_val_get_weekday_para1_d1 .
 ===
-Q: Can you tell me what 's tomorrow 's date , Papaya ?
+Q: Can you tell me what 's tomorrow 's date , Hugo ?
 A: It is _func_val_get_weekday_para1_d1 .
 Q: Tell me tomorrow 's date please !
 A: It is _func_val_get_weekday_para1_d1 .
