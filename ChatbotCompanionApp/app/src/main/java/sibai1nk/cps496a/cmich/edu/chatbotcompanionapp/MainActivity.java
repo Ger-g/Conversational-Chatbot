@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapter);
     }
 
+
     public static class ResponseViewHolder extends RecyclerView.ViewHolder {
         View mView;
         TextView textView_content;
