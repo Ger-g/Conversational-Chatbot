@@ -1,6 +1,7 @@
 package sibai1nk.cps496a.cmich.edu.chatbotcompanionapp;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(llm);
 
         myref = FirebaseDatabase.getInstance().getReference().child("/messages");
-        FirebaseRecyclerAdapter<Response, ResponseViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Response, ResponseViewHolder>(
+        final FirebaseRecyclerAdapter<Response, ResponseViewHolder> recyclerAdapter = new FirebaseRecyclerAdapter<Response, ResponseViewHolder>(
                 Response.class,
                 R.layout.individual_row,
                 ResponseViewHolder.class,
@@ -45,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
         dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.divider));
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setAdapter(recyclerAdapter);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recyclerView.smoothScrollToPosition(recyclerAdapter.getItemCount()-1);
+            }
+        });
     }
 
 

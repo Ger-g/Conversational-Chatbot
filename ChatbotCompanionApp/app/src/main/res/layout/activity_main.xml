@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
@@ -10,4 +13,17 @@
         android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|right"
+        android:padding="15dp">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+
+            app:backgroundTint="@color/colorPrimary" />
+    </LinearLayout>
 </RelativeLayout>

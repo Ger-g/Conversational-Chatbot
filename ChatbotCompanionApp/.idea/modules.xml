@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ChatbotCompanionApp.iml" filepath="$PROJECT_DIR$/ChatbotCompanionApp.iml" />
-      <module fileurl="file://C:\Users\G\Desktop\Conversational-Chatbot\ChatbotCompanionApp\ChatbotCompanionApp.iml" filepath="C:\Users\G\Desktop\Conversational-Chatbot\ChatbotCompanionApp\ChatbotCompanionApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\G\Desktop\Conversational-Chatbot\ChatbotCompanionApp\app\app.iml" filepath="C:\Users\G\Desktop\Conversational-Chatbot\ChatbotCompanionApp\app\app.iml" />
     </modules>
   </component>
 </project>
