@@ -234,7 +234,6 @@ class FunctionData:
 
         return result + current
 
-
 def call_function(func_info, tokenized_data=None, para_list=None, html_format=False):
     func_data = FunctionData(tokenized_data, html_format=html_format)
 
@@ -278,22 +277,3 @@ def call_function(func_info, tokenized_data=None, para_list=None, html_format=Fa
                     return func_dict[func_name](num2_val, num1_val)
 
     return "You beat me to it, and I cannot tell which is which for this question."
-
-# if __name__ == "__main__":
-#     import os
-#     from settings import PROJECT_ROOT
-#     from chatbot.tokenizeddata import TokenizedData
-#
-#     corp_dir = os.path.join(PROJECT_ROOT, 'Data', 'Corpus')
-#     knbs_dir = os.path.join(PROJECT_ROOT, 'Data', 'KnowledgeBase')
-#     td = TokenizedData(corpus_dir=corp_dir, knbase_dir=knbs_dir, training=False)
-#
-#     print(call_function('get_story_any', td, html_format=True))
-#     print(call_function('get_story_any', td, html_format=False))
-#     print(call_function('get_joke_any', td, html_format=True))
-#     print(call_function('get_joke_any', td, html_format=False))
-#     print(call_function('get_weekday_para1_d_2'))
-#     print(call_function('get_weekday_para1_d_1'))
-#     print(call_function('get_weekday_para1_d0'))
-#     print(call_function('get_weekday_para1_d1'))
-#     print(call_function('get_weekday_para1_d2'))

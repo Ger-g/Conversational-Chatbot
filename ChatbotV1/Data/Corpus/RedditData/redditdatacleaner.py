@@ -60,7 +60,7 @@ class RedditDataCleaner:
         """
         pat_curse = re.compile(
             r'\b(ass|asshole|bastard|bitch|child-fucker|damn|fuck|fucking|motherfucker|motherfucking|'
-            r'nigger|shit|shitass)\b',
+            r'nigger|shit|shitass|cunt|faggot|fag|nigga)\b',
             re.IGNORECASE)
 
         # Based on the assumption that we have enough data, we want to get the best quality part only.

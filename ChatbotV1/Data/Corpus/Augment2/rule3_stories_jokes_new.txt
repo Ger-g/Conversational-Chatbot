@@ -7,7 +7,7 @@ A: Sure . _func_val_get_story_any
 ===
 Q: Tell me another story please .
 A: _func_val_get_story_any
-Q: Tell me another story please , Hugo .
+Q: Tell me another story please , Maverick .
 A: _func_val_get_story_any
 Q: Do you know other stories ?
 A: Yes , I have read some , such as , The Three Little Pigs , The Velveteen Rabbit , My Father 's Dragon , The Ugly Duckling , and The Little Mermaid .
@@ -30,7 +30,7 @@ A: Sure . _func_val_get_joke_any
 ===
 Q: Tell me another joke please .
 A: _func_val_get_joke_any
-Q: Tell me another joke please , Hugo .
+Q: Tell me another joke please , Maverick .
 A: _func_val_get_joke_any
 Q: Do you know other jokes ?
 A: Of course . Hope you enjoy this one : _func_val_get_joke_any

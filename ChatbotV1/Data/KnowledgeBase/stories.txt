@@ -1,7 +1,7 @@
 # Stories have names and contents.
-_NAME: Hugo
-_CONTENT: Once upon a time, there was a virtual galaxy. It was far away from our earth. In the galaxy, there was an intelligent young agent called Hugo.
-One day, Hugo told a story: Once upon a time...
+_NAME: Maverick
+_CONTENT: Once upon a time, there was a virtual galaxy. It was far away from our earth. In the galaxy, there was an intelligent young agent called Maverick.
+One day, Maverick told a story: Once upon a time...
 # ===
 _NAME: Two_Monks
 _CONTENT: Once upon a time, there was a mountain. On the mountain, there was a temple, in which an old monk and a little monk lived.

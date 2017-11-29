@@ -31,8 +31,7 @@ class BotPredictor(object):
 
         # Prepare data and hyper parameters
         print("# Prepare dataset placeholder and hyper parameters ...")
-        self.tokenized_data = TokenizedData(corpus_dir=corpus_dir, knbase_dir=knbase_dir,
-                                            training=False)
+        self.tokenized_data = TokenizedData(corpus_dir=corpus_dir, knbase_dir=knbase_dir, training=False)
 
         self.hparams = self.tokenized_data.hparams
         self.src_placeholder = tf.placeholder(shape=[None], dtype=tf.string)
@@ -60,8 +59,7 @@ class BotPredictor(object):
             tokens = nltk.word_tokenize(new_sentence.lower())
             tmp_sentence = [' '.join(tokens[:]).strip()]
 
-            self.session.run(self.infer_batch.initializer,
-                             feed_dict={self.src_placeholder: tmp_sentence})
+            self.session.run(self.infer_batch.initializer, feed_dict={self.src_placeholder: tmp_sentence})
 
             outputs, _ = self.model.infer(self.session)
 
@@ -75,8 +73,7 @@ class BotPredictor(object):
                 outputs = outputs[:outputs.index(eos_token)]
 
             if pat_matched and pre_time == 0:
-                out_sentence, if_func_val = self._get_final_output(outputs, para_list=num_list,
-                                                                   html_format=html_format)
+                out_sentence, if_func_val = self._get_final_output(outputs, para_list=num_list, html_format=html_format)
                 if if_func_val:
                     return out_sentence
                 else:

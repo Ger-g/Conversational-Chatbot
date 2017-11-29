@@ -4,7 +4,7 @@
 
 A chatbot implemented in TensorFlow based on the new sequence to sequence (NMT) model, with certain rules integrated.
 
-ChatLearner (Hugo) was built on the new seq2seq model (dynamic RNN based) in TensorFlow 1.4. The code was largely referenced on the tutorial of the NMT model (https://github.com/tensorflow/nmt). Due to the changes made on tf.data API in TensorFlow 1.4, the implementation does not support any earlier TensorFlow releases.
+ChatLearner (Maverick) was built on the new seq2seq model (dynamic RNN based) in TensorFlow 1.4. The code was largely referenced on the tutorial of the NMT model (https://github.com/tensorflow/nmt). Due to the changes made on tf.data API in TensorFlow 1.4, the implementation does not support any earlier TensorFlow releases.
 
 Before starting everything else, you may want to try my trained model. You can download it [here](https://drive.google.com/file/d/1BUK9r_WV8z4FWZvN2lpvvluRmHjtoSLt/view?usp=sharing). Unzip the .rar file, and copy the Result folder into the Data folder under your project root. A vocab.txt file is also included in case I update it without updating the trained model
 in the future.
@@ -12,7 +12,7 @@ in the future.
 ## Highlights and Specialties:
 Why do you want to spend time checking this repository? Here are some possible reasons:
 
-1. The Hugo Data Set for training the chatbot. You can easily find tons of training data online, but you cannot find any with such high quality. See the detailed description below about the data set.
+1. The Maverick Data Set for training the chatbot. You can easily find tons of training data online, but you cannot find any with such high quality. See the detailed description below about the data set.
 
 2. The concise code style and clear implementation of the new seq2seq model based on dynamic RNN (a.k.a. the new NMT model). It is customized for chatbots and much easier to understand compared with the official tutorial.
 
@@ -39,10 +39,10 @@ Why do you want to spend time checking this repository? Here are some possible r
 
 4. I haven't found any disadvantages of the new model. If we have to name one, the TensorFlow group did not provide an integrated interface as for the legacy one, the seq2seq.py. Hence, it is a little harder to put the encoder and the decoder together by yourself. However, you may find that implementing beam search becomes easier. It is supported in this implementation. Beam search clearly improves the inference results, and it can also vary the responses (within the same trained model), which makes the chatbot more interesting as well.
    
-## Hugo Conversational Data Set
-Hugo Data Set is the best (cleanest and well-organized) free English conversational data you can find on the web for training a chatbot. Here are some details:
+## Maverick Conversational Data Set
+Maverick Data Set is the best (cleanest and well-organized) free English conversational data you can find on the web for training a chatbot. Here are some details:
 
-1. The data are composed of two sets: the first set was handcrafted, and we created the samples in order to maintain a consistent role of the chatbot, who can therefore be trained to be polite, patient, humorous, philosophical, and aware that he is a robot, but pretend to be a 9-year old boy named Hugo; the second set was cleaned from some online resources, including the scenario conversations designed for training robots, the Cornell movie dialogs, and cleaned Reddit data.
+1. The data are composed of two sets: the first set was handcrafted, and we created the samples in order to maintain a consistent role of the chatbot, who can therefore be trained to be polite, patient, humorous, philosophical, and aware that he is a robot, but pretend to be a 9-year old boy named Maverick; the second set was cleaned from some online resources, including the scenario conversations designed for training robots, the Cornell movie dialogs, and cleaned Reddit data.
 
 2. The training data set is split into three categories: two subsets will be augmented/repeated during the training, with different levels or times, while the third will not. The augmented subsets are to train the model with rules to follow, and some knowledge and common senses, while the third subset is just to help to train the language model.
 
@@ -78,7 +78,7 @@ cd chatbot
 python bottrainer.py
 ```
 
-A good GPU is highly recommended for the training as it can be very time-consuming. To train the model using the existing parameters and the Hugo data set with a
+A good GPU is highly recommended for the training as it can be very time-consuming. To train the model using the existing parameters and the Maverick data set with a
 single GPU (NVIDIA GeForce GTX 1080 Ti), it will take about 5 hours to get the desired perplexity. You can modify the model parameters based on your available 
 computing resources. If you are using a CPU version of TensorFlow, make sure you change num_gpus to 0 in hparams.json file. You will be able to see the training 
 results under Data/Result/ folder. Make sure the following 2 files exist as all these will be required for testing and prediction (the .meta file is optional as the 

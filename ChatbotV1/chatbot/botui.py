@@ -12,16 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-
 from __future__ import division
-
-import argparse
 import os
 import re
 import sys
 
 import numpy as np
-import threading
 import collections
 import time
 
@@ -34,20 +30,20 @@ import pyaudio
 
 from settings import PROJECT_ROOT
 from chatbot.botpredictor import BotPredictor
-# import chatbot.transcribe_streaming_mic as transcribe_streaming_mic
 
 from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 from six.moves import queue
-import six
 
 # Audio recording parameters
 RATE = 16000
 CHUNK = int(RATE / 10)  # 100ms
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-# status
+fbase = firebase.FirebaseApplication('https://testing-27640.firebaseio.com/', authentication=None)
+
+# statuses
 mic_rec = True
 talkTime = False
 ttStart = None
@@ -55,7 +51,7 @@ ttStart = None
 def duration_to_secs(duration):
     return duration.seconds + (duration.nanos / float(1e9))
 
-class MicrophoneStream(object):
+class MicrophoneStream():
     """Opens a recording stream as a generator yielding the audio chunks."""
     def __init__(self, rate, chunk_size):
         self._rate = rate
@@ -129,61 +125,29 @@ class MicrophoneStream(object):
             print('\n Closing microphone')
             os._exit(0)
 
-
 class ResumableMicrophoneStream(MicrophoneStream):
     """Opens a recording stream as a generator yielding the audio chunks."""
     def __init__(self, rate, chunk_size, max_replay_secs=5):
         super(ResumableMicrophoneStream, self).__init__(rate, chunk_size)
         self._max_replay_secs = max_replay_secs
 
-        # Some useful numbers
         # 2 bytes in 16 bit samples
         self._bytes_per_sample = 2 * self._num_channels
         self._bytes_per_second = self._rate * self._bytes_per_sample
 
         self._bytes_per_chunk = (self._chunk_size * self._bytes_per_sample)
         self._chunks_per_second = int(self._bytes_per_second / self._bytes_per_chunk)
-        # print(self._max_replay_secs, )
         self._untranscribed = collections.deque(maxlen=self._max_replay_secs * self._chunks_per_second)
 
     def on_transcribe(self, end_time):
         while self._untranscribed and end_time > self._untranscribed[0][1]:
             self._untranscribed.popleft()
 
-    # def generator(self, resume=False):
-    #     total_bytes_sent = 0
-    #     if resume:
-    #         # Make a copy, in case on_transcribe is called while yielding them
-    #         catchup = list(self._untranscribed)
-    #
-    #         print('catchup', catchup)
-    #
-    #         # Yield all the untranscribed chunks first
-    #         for chunk, _ in catchup:
-    #             yield chunk
-    #
-    #     for byte_data in super(ResumableMicrophoneStream, self).generator():
-    #         print('inc info ', len(byte_data))
-    #
-    #         # Populate the replay buffer of untranscribed audio bytes
-    #         total_bytes_sent += len(byte_data)
-    #         chunk_end_time = (total_bytes_sent / self._bytes_per_second)
-    #         self._untranscribed.append((byte_data, chunk_end_time))
-    #
-    #         yield byte_data
-
-
 def listen_audio_loop(responses):
-    """Iterates through server responses and prints them.
-    The responses passed is a generator that will block until a response
-    is provided by the server.
-    Each response may contain multiple results, and each result may contain
-    multiple alternatives; for details, see https://goo.gl/tjCPAU.  Here we
-    print only the transcription for the top alternative of the top result.
-    In this case, responses are provided for interim results as well. If the
-    response is an interim one, print a line feed at the end of it, to allow
-    the next result to overwrite it, until the response is a final one. For the
-    final one, print a newline to preserve the finalized transcription.
+    """
+        Endpoint for our stream.
+        A 'responses' generator - fed by Google Speech API - is parsed for various information.
+        Once a response is final, it is cleaned and then sent to our predictor model.
     """
     num_chars_printed = 0
     global talkTime, ttStart
@@ -204,57 +168,51 @@ def listen_audio_loop(responses):
 
         # Display interim results, but with a carriage return at the end of the
         # line, so subsequent lines will overwrite them.
-        #
-        # If the previous result was longer than this one, we need to print
-        # some extra spaces to overwrite the previous result
         overwrite_chars = ' ' * (num_chars_printed - len(transcript))
 
         if ttStart != None:
-            print(time.time() - ttStart)
+            # print(int(time.time() - ttStart))
             if (time.time() - ttStart) >= 10:
                 talkTime = False
-
 
         if not result.is_final:
             sys.stdout.write(transcript + overwrite_chars + '\r')
             sys.stdout.flush()
-
             num_chars_printed = len(transcript)
 
-        elif re.search(r'\b(Hugo)\b', transcript, re.I) or talkTime:
+        # Handler for a final result
+        elif re.search(r'\b(Maverick)\b', transcript, re.I) or talkTime:
             talkTime = True
             ttStart = time.time()
 
+            # cut mic
             global mic_rec
             mic_rec = False
 
-
-            temp = transcript[1:5]
-            if temp is 'Hugo':
-                transcript = transcript[6:]
+            # Remove bot name if used as a wake word
+            temp = transcript[1:8]
+            if temp is 'Maverick':
+                transcript = transcript[8:]
 
             print('You:  ', transcript)
             res = respond(transcript)
 
-
-
-            # Exit recognition if any of the transcribed phrases could be
-            # one of our keywords.
+            # Exit recognition if transcription finds our keywords
             if re.search(r'\b(goodbye|quit)\b', transcript, re.I):
                 print('Exiting..')
+                post = transcript + "\n" + res
+                fbase.post('/messages', {'message': post})
                 sys.exit(0)
                 # os._exit(0)
 
-
             # firebase
             post = transcript + "\n" + res
-            f = firebase.FirebaseApplication('https://testing-27640.firebaseio.com/', authentication=None)
-            f.post('/messages', {'message': post})
+            fbase.post('/messages', {'message': post})
 
+            # open mic, resume loop
             mic_rec = True
             sys.stdout.write("> Say something!")
             sys.stdout.flush()
-
             num_chars_printed = 0
 
 
@@ -279,32 +237,20 @@ def _record_keeper(responses, stream):
 
             yield r
     except IndexError:
-        print('\nINPUTSTREAM flushing...')
+        print('\nINPUT_STREAM flushing...')
         miniMain()
         pass
 
 
-
-def listen_print_loop(responses, stream):
-    """Iterates through server responses and prints them.
-    Same as in transcribe_streaming_mic, but keeps track of when a sent
-    audio_chunk has been transcribed.
-    """
-    # print('\n RESP OBJ', responses)
-    # with_results = (r for r in responses if (r.results and r.results[0].is_final))
-    # print('with_results ', with_results)
-
-    listen_audio_loop(_record_keeper(responses, stream))
-
 def respond(Hsent):
     while Hsent:
+        # Check to see if the user quits
         if Hsent.strip() == 'quit' or Hsent.strip() == 'goodbye':
-            engine.say('It\'s been a pleasure chatting with you, goodbye!')
+            engine.say('It\'s been fun chatting with you, goodbye!')
             engine.runAndWait()
             os._exit(0)
 
-
-        # get the response from our NMT model
+        # Get the response from our NMT model
         ans = predictor.predict(Hsent)
         print('Bot:  ', ans)
         engine.say(ans)
@@ -313,11 +259,8 @@ def respond(Hsent):
 
         return ans
 
-
+# main loop used to re-initialize Google Speech Streaming Recognition
 def miniMain():
-
-    mic_manager = ResumableMicrophoneStream(16000, int(16000 / 10))
-
     client = speech.SpeechClient()
     config = types.RecognitionConfig(
         encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
@@ -328,24 +271,25 @@ def miniMain():
     streaming_config = types.StreamingRecognitionConfig(
         config=config,
         interim_results=True)
+    print("INPUT_STREAM ready")
 
     sys.stdout.write("> Say something!")
     sys.stdout.flush()
 
-    with mic_manager as stream:
+    with ResumableMicrophoneStream(16000, int(16000 / 10)) as stream:
         while True:
+            # create audio stream from pyaudio, pipe it into Google Speech API, and get a transcript generator
             audio_generator = stream.generator()
             requests = (types.StreamingRecognizeRequest(audio_content=content) for content in audio_generator)
-
             responses = client.streaming_recognize(streaming_config, requests)
 
             try:
-                # Now, put the transcription responses to use.
-                listen_print_loop(responses, stream)
+                # send the transcript generator to a listener loop
+                listen_audio_loop(_record_keeper(responses, stream))
                 break
+            # Handler for: Mic open too long on a single Google API stream / Microphone is closed or is cycling
             except grpc.RpcError as e:
-                if e.code() not in (grpc.StatusCode.INVALID_ARGUMENT,
-                                    grpc.StatusCode.OUT_OF_RANGE):
+                if e.code() not in (grpc.StatusCode.INVALID_ARGUMENT, grpc.StatusCode.OUT_OF_RANGE):
                     raise
                 details = e.details()
                 if e.code() == grpc.StatusCode.INVALID_ARGUMENT:
@@ -353,13 +297,7 @@ def miniMain():
                         raise
                 else:
                     raise
-
-                print('\n               Swapping streams..')
-                resume = True
-
-def main():
-    while True:
-        miniMain()
+                print('\nSwapping INPUT_STREAM...')
 
 if __name__ == "__main__":
     # init TF chatbot params
@@ -372,11 +310,13 @@ if __name__ == "__main__":
     engine = pyttsx3.init()
     engine.setProperty('rate', 190)  # 120 words per minute
     engine.setProperty('volume', 1)
-    engine.say("Hi, I'm Hugo.")
+    engine.say("Hi, I'm Maverick.")
     engine.runAndWait()
 
-    # init TF session
-    with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
-        predictor = BotPredictor(sess, corpus_dir=corp_dir, knbase_dir=knbs_dir, result_dir=res_dir, result_file='basic')
-
-        main()
+    # init TF session  (Run other option to see connected components)
+    # with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
+    with tf.Session(config=tf.ConfigProto()) as sess:
+        predictor = BotPredictor(sess, corpus_dir=corp_dir, knbase_dir=knbs_dir, result_dir=res_dir,
+                                 result_file='basic')
+        while True:
+            miniMain()
