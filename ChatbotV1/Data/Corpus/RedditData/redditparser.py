@@ -1,7 +1,7 @@
 """
 This file was modified from the reddit parser on https://github.com/pender/chatbot-rnn.
 When unzipped, the generated files contains conversations in the same format as those 
-in other data files in this Papaya Data Set corpus. They will be further cleaned and 
+in other data files in this Hugo Data Set corpus. They will be further cleaned and
 processed using other scripts in this folder.
 """
 from bz2 import BZ2File

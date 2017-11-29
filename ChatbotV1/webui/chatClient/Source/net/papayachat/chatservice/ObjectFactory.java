@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ==============================================================================*/
-package net.papayachat.chatservice;
+package net.Hugochat.chatservice;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -23,7 +23,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the net.papayachat.chatservice package. 
+ * generated in the net.Hugochat.chatservice package.
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -37,13 +37,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
     private final static QName _SessionSentence_QNAME = 
-			new QName("http://papayachat.net/ChatService", "SessionSentence");
+			new QName("http://Hugochat.net/ChatService", "SessionSentence");
     private final static QName _Params_QNAME = 
-			new QName("http://papayachat.net/ChatService", "params");
+			new QName("http://Hugochat.net/ChatService", "params");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema 
-	 * derived classes for package: net.papayachat.chatservice
+	 * derived classes for package: net.Hugochat.chatservice
      * 
      */
     public ObjectFactory() {
@@ -69,7 +69,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link SessionSentence }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://papayachat.net/ChatService", name = "SessionSentence")
+    @XmlElementDecl(namespace = "http://Hugochat.net/ChatService", name = "SessionSentence")
     public JAXBElement<SessionSentence> createSessionSentence(SessionSentence value) {
         return new JAXBElement<SessionSentence>(_SessionSentence_QNAME, SessionSentence.class, 
 				null, value);
@@ -79,7 +79,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link ParamsTypes }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://papayachat.net/ChatService", name = "params")
+    @XmlElementDecl(namespace = "http://Hugochat.net/ChatService", name = "params")
     public JAXBElement<ParamsTypes> createParams(ParamsTypes value) {
         return new JAXBElement<ParamsTypes>(_Params_QNAME, ParamsTypes.class, null, value);
     }

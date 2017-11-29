@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ==============================================================================*/
-package net.papayachat.chatservice;
+package net.Hugochat.chatservice;
 
 import java.math.BigInteger;
 import java.util.Map;
@@ -25,7 +25,7 @@ public class ChatClient {
 	private final ChatServicePortType cPort;
 	
 	/**
-	 * serviceAddress example: http://papayachat.net:8080/ChatService
+	 * serviceAddress example: http://Hugochat.net:8080/ChatService
 	 */
 	public ChatClient(String serviceAddress, int timeout) {
 		ChatService cServ = new ChatService();

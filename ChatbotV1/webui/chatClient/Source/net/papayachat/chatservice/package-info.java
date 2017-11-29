@@ -13,5 +13,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 ==============================================================================*/
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://papayachat.net/ChatService")
-package net.papayachat.chatservice;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://Hugochat.net/ChatService")
+package net.Hugochat.chatservice;

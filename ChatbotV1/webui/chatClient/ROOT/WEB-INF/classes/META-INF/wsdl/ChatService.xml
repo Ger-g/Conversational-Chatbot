@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <wsdl:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://papayachat.net/ChatService" 
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://papayachat.net/ChatService" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://Hugochat.net/ChatService"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://Hugochat.net/ChatService"
 	name="ChatService">
 <wsdl:types>
-<xsd:schema targetNamespace="http://papayachat.net/ChatService">
+<xsd:schema targetNamespace="http://Hugochat.net/ChatService">
 	<xsd:complexType name="paramsTypes">
 		<xsd:sequence>
 			<xsd:element name="sessionId" type="xsd:integer"/>
@@ -36,7 +36,7 @@
 <wsdl:binding name="ChatServiceBinding" type="tns:ChatServicePortType">
 	<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 	<wsdl:operation name="reply">
-		<soap:operation style="document" soapAction="http://papayachat.net/ChatService/reply"/>
+		<soap:operation style="document" soapAction="http://Hugochat.net/ChatService/reply"/>
 		<wsdl:input>
 			<soap:body use="literal"/>
 		</wsdl:input>
@@ -47,7 +47,7 @@
 </wsdl:binding>
 <wsdl:service name="ChatService">
 	<wsdl:port name="ChatServicePort" binding="tns:ChatServiceBinding">
-		<soap:address location="http://papayachat.net/ChatService"/>
+		<soap:address location="http://Hugochat.net/ChatService"/>
 	</wsdl:port>
 </wsdl:service>
 </wsdl:definitions>

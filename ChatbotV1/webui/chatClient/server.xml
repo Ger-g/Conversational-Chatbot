@@ -138,7 +138,7 @@
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 
       </Host>
-	  <Host name="papayachat.net" appBase="C:/chatClient">
+	  <Host name="Hugochat.net" appBase="C:/chatClient">
           <Context path="" docBase="C:/chatClient/ROOT" debug="0"></Context>
       </Host>
     </Engine>
