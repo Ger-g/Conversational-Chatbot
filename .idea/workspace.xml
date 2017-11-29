@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="212c3725-b483-4284-a7f4-fb9fb75b37c0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ChatbotV1/chatbot/STT.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ChatbotV1/chatbot/TTS.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/Augment2/rule2_date_time_new.txt" afterPath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/Augment2/rule2_date_time_new.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/Augment2/rule3_stories_jokes_new.txt" afterPath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/Augment2/rule3_stories_jokes_new.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/RedditData/redditparser.py" afterPath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/RedditData/redditparser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/hparams.json" afterPath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/hparams.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/vocab.txt" afterPath="$PROJECT_DIR$/ChatbotV1/Data/Corpus/vocab.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/Data/KnowledgeBase/stories.txt" afterPath="$PROJECT_DIR$/ChatbotV1/Data/KnowledgeBase/stories.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/Data/Test/responses.txt" afterPath="$PROJECT_DIR$/ChatbotV1/Data/Test/responses.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/Data/Test/samples.txt" afterPath="$PROJECT_DIR$/ChatbotV1/Data/Test/samples.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/README.md" afterPath="$PROJECT_DIR$/ChatbotV1/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/chatbot/botui.py" afterPath="$PROJECT_DIR$/ChatbotV1/chatbot/botui.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/README.md" afterPath="$PROJECT_DIR$/ChatbotV1/webui/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/ROOT/WEB-INF/classes/META-INF/wsdl/ChatService.xml" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/ROOT/WEB-INF/classes/META-INF/wsdl/ChatService.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/ROOT/ajax/getChatReply.jsp" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/ROOT/ajax/getChatReply.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/ROOT/index.html" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/ROOT/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/ROOT/js/index.js" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/ROOT/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ChatClient.java" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ChatClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ChatService.java" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ChatService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ChatServicePortType.java" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ChatServicePortType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ObjectFactory.java" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ObjectFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ParamsTypes.java" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/ParamsTypes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/SessionSentence.java" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/SessionSentence.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/package-info.java" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/Source/net/papayachat/chatservice/package-info.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/build.xml" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/server.xml" afterPath="$PROJECT_DIR$/ChatbotV1/webui/chatClient/server.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,11 +17,21 @@
       <file leaf-file-name="botui.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ChatbotV1/chatbot/botui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="223" column="0" lean-forward="true" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+            <state relative-caret-position="368">
+              <caret line="225" column="33" lean-forward="true" selection-start-line="225" selection-start-column="33" selection-end-line="225" selection-end-column="33" />
               <folding>
                 <element signature="e#691#722#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="botpredictor.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ChatbotV1/chatbot/botpredictor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-68">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/ChatbotV1/Data/Corpus/hparams.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+              <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -75,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/ChatbotV1/Data/Corpus/Augment2/rule3_stories_jokes_new.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+              <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -104,9 +89,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="144" />
-    <option name="y" value="120" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="58" />
+    <option name="y" value="90" />
     <option name="width" value="1400" />
     <option name="height" value="908" />
   </component>
@@ -140,6 +125,17 @@
               <item name="Conversational-Chatbot" type="462c0819:PsiDirectoryNode" />
               <item name="ChatbotCompanionApp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Conversational-Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Conversational-Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="ChatbotV1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Conversational-Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Conversational-Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="ChatbotV1" type="462c0819:PsiDirectoryNode" />
+              <item name="chatbot" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -149,7 +145,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChatBot - STT" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChatBotV2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -201,7 +197,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="144" y="120" width="1400" height="908" extended-state="0" />
+    <frame x="58" y="90" width="1400" height="908" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -259,7 +255,7 @@
     <entry file="file://$PROJECT_DIR$/ChatbotV1/Data/Corpus/Augment2/rule3_stories_jokes_new.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -275,15 +271,23 @@
     <entry file="file://$PROJECT_DIR$/ChatbotV1/Data/Corpus/hparams.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChatbotV1/chatbot/botpredictor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ChatbotV1/chatbot/botui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="223" column="0" lean-forward="true" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+        <state relative-caret-position="368">
+          <caret line="225" column="33" lean-forward="true" selection-start-line="225" selection-start-column="33" selection-end-line="225" selection-end-column="33" />
           <folding>
             <element signature="e#691#722#0" expanded="true" />
           </folding>

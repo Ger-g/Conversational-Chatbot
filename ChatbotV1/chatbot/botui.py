@@ -49,6 +49,8 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 # status
 mic_rec = True
+talkTime = False
+ttStart = None
 
 def duration_to_secs(duration):
     return duration.seconds + (duration.nanos / float(1e9))
@@ -184,6 +186,7 @@ def listen_audio_loop(responses):
     final one, print a newline to preserve the finalized transcription.
     """
     num_chars_printed = 0
+    global talkTime, ttStart
     for response in responses:
         if not response.results:
             continue
@@ -206,28 +209,41 @@ def listen_audio_loop(responses):
         # some extra spaces to overwrite the previous result
         overwrite_chars = ' ' * (num_chars_printed - len(transcript))
 
+        if ttStart != None:
+            print(time.time() - ttStart)
+            if (time.time() - ttStart) >= 10:
+                talkTime = False
+
+
         if not result.is_final:
             sys.stdout.write(transcript + overwrite_chars + '\r')
             sys.stdout.flush()
 
             num_chars_printed = len(transcript)
 
-        elif re.search(r'\b(Hugo)\b', transcript, re.I):
+        elif re.search(r'\b(Hugo)\b', transcript, re.I) or talkTime:
+            talkTime = True
+            ttStart = time.time()
+
+            global mic_rec
+            mic_rec = False
+
+
             temp = transcript[1:5]
             if temp is 'Hugo':
                 transcript = transcript[6:]
 
-            global mic_rec
-            mic_rec = False
             print('You:  ', transcript)
             res = respond(transcript)
+
 
 
             # Exit recognition if any of the transcribed phrases could be
             # one of our keywords.
             if re.search(r'\b(goodbye|quit)\b', transcript, re.I):
                 print('Exiting..')
-                os._exit(0)
+                sys.exit(0)
+                # os._exit(0)
 
 
             # firebase
